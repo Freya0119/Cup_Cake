@@ -15,9 +15,35 @@
  */
 package com.example.cupcake
 
+import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupActionBarWithNavController
 
 /**
  * Activity for cupcake order flow.
  */
-class MainActivity : AppCompatActivity(R.layout.activity_main)
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        Log.d("FOR_TEST", "MainActivity onCreate")
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
+        setupActionBarWithNavController(navController)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("FOR_TEST", "MainActivity onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("FOR_TEST", "MainActivity onResume")
+    }
+}
