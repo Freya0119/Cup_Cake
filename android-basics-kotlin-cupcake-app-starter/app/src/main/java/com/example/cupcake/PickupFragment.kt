@@ -52,7 +52,8 @@ class PickupFragment : Fragment() {
 
         binding?.apply {
             viewModel = sharedViewModel
-            nextButton.setOnClickListener { goToNextScreen() }
+            lifecycleOwner = viewLifecycleOwner
+            pickupFragment = this@PickupFragment
         }
     }
 
