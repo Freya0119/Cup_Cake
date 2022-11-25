@@ -28,10 +28,11 @@ class OrderViewModel : ViewModel() {
         NumberFormat.getCurrencyInstance().format(it)
     }
 
+    val dateOptions = getPickupOptions()
+
     private var _cupCakeName = MutableLiveData<String>()
     val cupCakeName: LiveData<String> = _cupCakeName
-
-    val dateOptions = getPickupOptions()
+    val cupCakeList = mutableListOf<CupCakeViewModel>()
 
     init {
         resetOrder()
@@ -73,6 +74,8 @@ class OrderViewModel : ViewModel() {
         _date.value = dateOptions[0]
         _price.value = 0.0
         _cupCakeName.value = ""
+
+        cupCakeList.clear()
     }
 
     private fun updatePrice() {
@@ -90,5 +93,9 @@ class OrderViewModel : ViewModel() {
 
     fun setName(name: String) {
         _cupCakeName.value = name
+    }
+
+    fun setFlavorAndValueList(flavor: String, value: Int) {
+        cupCakeList.add(CupCakeViewModel(flavor, value))
     }
 }

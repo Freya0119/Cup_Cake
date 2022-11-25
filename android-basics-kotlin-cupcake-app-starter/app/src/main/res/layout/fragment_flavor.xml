@@ -88,6 +88,57 @@
                     android:text="@string/coffee" />
             </RadioGroup>
 
+            <EditText
+                android:id="@+id/vanilla_value"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/side_margin"
+                android:hint="@string/vanilla"
+                app:layout_constraintBottom_toTopOf="@+id/chocolate_value"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/flavor_options"
+                app:layout_constraintTop_toTopOf="@+id/flavor_options" />
+
+            <EditText
+                android:id="@+id/chocolate_value"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:hint="@string/chocolate"
+                app:layout_constraintBottom_toTopOf="@+id/redVelvet_value"
+                app:layout_constraintEnd_toEndOf="@+id/vanilla_value"
+                app:layout_constraintStart_toStartOf="@+id/vanilla_value"
+                app:layout_constraintTop_toBottomOf="@+id/vanilla_value" />
+
+            <EditText
+                android:id="@+id/redVelvet_value"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:hint="@string/red_velvet"
+                app:layout_constraintBottom_toTopOf="@+id/saltedCaramel_value"
+                app:layout_constraintEnd_toEndOf="@+id/vanilla_value"
+                app:layout_constraintStart_toStartOf="@+id/vanilla_value"
+                app:layout_constraintTop_toBottomOf="@+id/chocolate_value" />
+
+            <EditText
+                android:id="@+id/saltedCaramel_value"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:hint="@string/salted_caramel"
+                app:layout_constraintBottom_toTopOf="@+id/coffee_value"
+                app:layout_constraintEnd_toEndOf="@+id/vanilla_value"
+                app:layout_constraintStart_toStartOf="@+id/vanilla_value"
+                app:layout_constraintTop_toBottomOf="@+id/redVelvet_value" />
+
+            <EditText
+                android:id="@+id/coffee_value"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:hint="@string/coffee"
+                app:layout_constraintBottom_toBottomOf="@id/flavor_options"
+                app:layout_constraintEnd_toEndOf="@+id/vanilla_value"
+                app:layout_constraintStart_toStartOf="@+id/vanilla_value"
+                app:layout_constraintTop_toBottomOf="@+id/saltedCaramel_value" />
+
             <View
                 android:id="@+id/divider"
                 style="@style/Widget.Cupcake.Divider"
