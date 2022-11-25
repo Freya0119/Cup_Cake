@@ -74,8 +74,8 @@ class FlavorFragment : Fragment() {
         binding = null
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        Log.d("FOR_TEST", "FlavorFragment onCreate")
+    fun cancelOrder() {
+        sharedViewModel.resetOrder()
+        findNavController().navigate(R.id.action_flavorFragment_to_startFragment)
     }
 }
