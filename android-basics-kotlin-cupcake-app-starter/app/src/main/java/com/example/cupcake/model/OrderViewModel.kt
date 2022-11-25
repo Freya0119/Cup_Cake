@@ -98,4 +98,17 @@ class OrderViewModel : ViewModel() {
     fun setFlavorAndValueList(flavor: String, value: Int) {
         cupCakeList.add(CupCakeViewModel(flavor, value))
     }
+
+    fun isNotQuantityCorrect(): Boolean {
+        if (cupCakeList.isNullOrEmpty()) return true
+
+        var count = 0
+        for (cupCake in cupCakeList) {
+            count += cupCake.myValue
+        }
+
+        if (count != quantity.value) return true
+
+        return false
+    }
 }
