@@ -50,7 +50,17 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="@dimen/side_margin"
-                android:text="@string/order_cupcakes"
+                android:text="Order CupCake"
+                android:textAppearance="?attr/textAppearanceHeadline4"
+                android:textColor="@color/material_on_background_emphasis_medium" />
+
+            <EditText
+                android:id="@+id/startFragment_editView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/side_margin"
+                android:hint="CupCake name?"
                 android:textAppearance="?attr/textAppearanceHeadline4"
                 android:textColor="@color/material_on_background_emphasis_medium" />
 

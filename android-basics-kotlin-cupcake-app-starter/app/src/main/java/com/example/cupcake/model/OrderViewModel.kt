@@ -28,6 +28,9 @@ class OrderViewModel : ViewModel() {
         NumberFormat.getCurrencyInstance().format(it)
     }
 
+    private var _cupCakeName = MutableLiveData<String>()
+    val cupCakeName: LiveData<String> = _cupCakeName
+
     val dateOptions = getPickupOptions()
 
     init {
@@ -69,6 +72,7 @@ class OrderViewModel : ViewModel() {
         _flavor.value = ""
         _date.value = dateOptions[0]
         _price.value = 0.0
+        _cupCakeName.value = ""
     }
 
     private fun updatePrice() {
@@ -82,5 +86,9 @@ class OrderViewModel : ViewModel() {
     fun isNotPickUpToday(notFlavor: String, notPickupDay: String): Boolean {
         if (flavor.value == notFlavor && date.value == notPickupDay) return true
         return false
+    }
+
+    fun setName(name: String) {
+        _cupCakeName.value = name
     }
 }

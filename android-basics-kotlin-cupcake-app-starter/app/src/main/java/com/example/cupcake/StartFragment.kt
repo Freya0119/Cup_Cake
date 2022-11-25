@@ -20,6 +20,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -59,9 +60,24 @@ class StartFragment : Fragment() {
      */
     fun orderCupcake(quantity: Int) {
         sharedViewModel.setQuantity(quantity)
+
         if (sharedViewModel.hasNoFlavorSet()) {
             sharedViewModel.setFlavor(getString(R.string.vanilla))
         }
+
+        val cupCakeName =
+            binding?.root?.findViewById<EditText>(R.id.startFragment_editView)?.text.toString()
+        if (cupCakeName != "") {
+            sharedViewModel.setName(cupCakeName)
+        } else {
+            Toast.makeText(
+                this.requireContext(),
+                "Enter your cupcake name!",
+                Toast.LENGTH_SHORT
+            ).show()
+            return
+        }
+
         findNavController().navigate(R.id.action_startFragment_to_flavorFragment)
     }
 
