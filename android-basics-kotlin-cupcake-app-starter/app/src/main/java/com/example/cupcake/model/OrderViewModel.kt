@@ -1,11 +1,14 @@
 package com.example.cupcake.model
 
+import android.provider.Settings.Global.getString
+import android.service.autofill.Validators.and
 import android.util.Log
 import android.view.animation.Transformation
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.example.cupcake.R
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -74,5 +77,10 @@ class OrderViewModel : ViewModel() {
             calculatedPrice += PRICE_FOR_SAME_DAY_PICKUP
         }
         _price.value = calculatedPrice
+    }
+
+    fun isNotPickUpToday(notFlavor: String, notPickupDay: String): Boolean {
+        if (flavor.value == notFlavor && date.value == notPickupDay) return true
+        return false
     }
 }

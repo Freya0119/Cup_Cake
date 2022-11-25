@@ -64,6 +64,15 @@ class SummaryFragment : Fragment() {
      * Submit the order by sharing out the order details to another app via an implicit intent.
      */
     fun sendOrder() {
+        if (sharedViewModel.isNotPickUpToday(
+                getString(R.string.vanilla),
+                sharedViewModel.dateOptions[0]
+            )   //傳入"不可行""條件"
+        ) {
+            Toast.makeText(this.requireContext(), "Cannot pickup!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         val numberOfCupcakes = sharedViewModel.quantity.value ?: 0  //避免為空
         val orderSummary = getString(
             R.string.order_details,
@@ -72,8 +81,6 @@ class SummaryFragment : Fragment() {
             sharedViewModel.date.value,
             sharedViewModel.price.value
         )
-
-        Log.d("MAIL", orderSummary)
 
         val intent =
             Intent(Intent.ACTION_SEND)
